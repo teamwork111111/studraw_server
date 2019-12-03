@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.klxy.studraw_server.dao.UserDao">
+    <!--查询-->
+    <!--getAllUser分页查询注意，如果SELECT语句中有末尾的分号，在查询是会报错，需要将末尾的分号去掉-->
+    <select id="getAllUser" resultType="com.klxy.studraw_server.model.User">
+        SELECT * FROM user
+    </select>
+
+
+</mapper>

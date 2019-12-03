@@ -1,0 +1,19 @@
+server:
+  port: 8081 #注意，这里是https的端口号
+
+spring:
+  datasource:
+    url: jdbc:mysql://120.24.74.223:3306/studraw?serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root
+    password: Liangjh123.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/static/
+#    static-locations:  file:F:\Study\mywebsite\websiteback\src\main\resources\static
+
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
