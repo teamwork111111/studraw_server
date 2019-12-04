@@ -3,7 +3,6 @@ package com.klxy.studraw_server.dao;
 import com.klxy.studraw_server.model.Role;
 import org.apache.ibatis.annotations.Select;
 
-import java.util.List;
 
 public interface RoleDao {
     //查询

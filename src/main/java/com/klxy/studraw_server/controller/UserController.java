@@ -26,6 +26,7 @@ public class UserController {
 
     /**
      *  查询所有用户，同时联合查询到关联的role角色
+     *  测试链接：http://localhost:8081/api/user/getAllUser
      * @return
      */
     @RequestMapping("/getAllUser1")

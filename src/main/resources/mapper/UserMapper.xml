@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.klxy.studraw_server.dao.UserDao">
-    <!--查询-->
-    <!--getAllUser分页查询注意，如果SELECT语句中有末尾的分号，在查询是会报错，需要将末尾的分号去掉-->
-    <select id="getAllUser" resultType="com.klxy.studraw_server.model.User">
+
+    <!--一对一（1个User对应一个角色）关联查询，用到resultMap
+    type为getAllUser方法的返回值类型，因为查询User，所以返回User的实体
+    result为非主键的手动映射，虽然column和property的值(roleid)相同，
+    但如果不配置，只能自动映射1次，赋值给column当参数后，roleid的值会变为null
+    association为User类关联的Role角色的值，通过一个select条件查询得到，column的值作为查询的条件
+    -->
+    <resultMap id="role1" type="com.klxy.studraw_server.model.User">
+        <result column="roleid" property="roleid" />
+        <association property="role" select="com.klxy.studraw_server.dao.RoleDao.getRoleByRoleid" column="roleid"></association>
+    </resultMap>
+    <select id="getAllUser" resultMap="role1">
         SELECT * FROM user
     </select>
 

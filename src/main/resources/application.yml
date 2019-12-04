@@ -1,5 +1,5 @@
 server:
-  port: 8081 #注意，这里是https的端口号
+  port: 8081
 
 spring:
   datasource:
