@@ -14,10 +14,13 @@ public interface UserDao {
 
     /**
      * 查询user，采用注解形式
+     * 一句@Result(property = "roleid",column = "roleid")表示，
+     * 手动映射roleid,避免自动映射时roleid作为传递给select语句之后，找不到roleid变为空值
      * @return
      */
     @Select("select * from user")
-    @Results({
+    @Results(value = {
+            @Result(property = "roleid",column = "roleid"),
             @Result(property="role",column="roleid",one=@One(select="com.klxy.studraw_server.dao.RoleDao.getRoleByRoleid"))
     })
     List<User> getAllUser1();
