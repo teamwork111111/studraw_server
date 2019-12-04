@@ -49,7 +49,7 @@ public class Schoolmajor {
 
     @Override
     public String toString() {
-        return "Schoolmajor{" +
+        return "SchoolmajorServcie{" +
                 "id='" + id + '\'' +
                 ", schid='" + schid + '\'' +
                 ", majid='" + majid + '\'' +
