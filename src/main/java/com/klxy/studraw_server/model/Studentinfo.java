@@ -4,6 +4,15 @@ public class Studentinfo {
     private String id;
     private String no;
     private String smid;
+    private Schoolmajor schoolmajor;
+
+    public Schoolmajor getSchoolmajor() {
+        return schoolmajor;
+    }
+
+    public void setSchoolmajor(Schoolmajor schoolmajor) {
+        this.schoolmajor = schoolmajor;
+    }
 
     public String getId() {
         return id;
@@ -35,6 +44,7 @@ public class Studentinfo {
                 "id='" + id + '\'' +
                 ", no='" + no + '\'' +
                 ", smid='" + smid + '\'' +
+                ", schoolmajor=" + schoolmajor +
                 '}';
     }
 }

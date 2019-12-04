@@ -22,4 +22,13 @@ public interface SchoolmajorDao {
     })
     List<Schoolmajor> getAllSchoolMajor();
 
+    @Select("select * from schoolmajor where id = #{smid}")
+    @Results(value = {
+            @Result(property = "schid",column = "schid"),
+            @Result(property = "majid",column = "majid"),
+            @Result(property="school",column="schid",one=@One(select="com.klxy.studraw_server.dao.SchoolDao.getSchoolBySchid")),
+            @Result(property="major",column="majid",one=@One(select="com.klxy.studraw_server.dao.MajorDao.getMajorByMajid"))
+    })
+    Schoolmajor getSchoolMajorByid(String smid);
+
 }
