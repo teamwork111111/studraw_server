@@ -48,5 +48,19 @@ public class UserController {
         return userService.login(username, password);
     }
 
+    /**
+     * 注册用户方法
+     * 浏览器测试：http://localhost:8081/api/user/adduser?username=13100001112&password=654321&roleid=1
+     * 问题：userinfoid在用户注册的时候自动增长？然后取消userinfo主键id自动增长（实践证明表不能有2列自动增长列），然后用户填写userinfo基本信息时按userinfoid insert
+     * 后面怎样与userinfo主键表映射呢？* 添加外键约束？在用户表把userinfoid也设置为自增长？
+     * 在用户填写userinfo表后根据其主键id再次回来设置userinfoid？
+     *
+     * @param user
+     * @return
+     */
+    @RequestMapping("/adduser")
+    public Integer addUser(User user){
+        return userService.insert(user);
+    }
 
 }

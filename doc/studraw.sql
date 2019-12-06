@@ -6,11 +6,11 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
-  `id` varchar(255) NOT NULL,
-  `sumid` varchar(255) DEFAULT NULL,
+  `id` int(11) auto_increment,
+  `sumid` int(11) DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
-  `userid` varchar(255) DEFAULT NULL,
+  `userid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -23,8 +23,8 @@ CREATE TABLE `feedback` (
 -- ----------------------------
 DROP TABLE IF EXISTS `label`;
 CREATE TABLE `label` (
-  `id` varchar(255) NOT NULL,
-  `userid` varchar(255) DEFAULT NULL,
+  `id` int(11) auto_increment,
+  `userid` int(11) DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
   `labellist` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
@@ -40,8 +40,8 @@ CREATE TABLE `label` (
 -- ----------------------------
 DROP TABLE IF EXISTS `loger`;
 CREATE TABLE `loger` (
-  `id` varchar(255) NOT NULL,
-  `userid` varchar(255) DEFAULT NULL,
+  `id` int(11) auto_increment,
+  `userid` int(11) DEFAULT NULL,
   `logtime` datetime DEFAULT NULL,
   `logip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -56,7 +56,7 @@ CREATE TABLE `loger` (
 -- ----------------------------
 DROP TABLE IF EXISTS `major`;
 CREATE TABLE `major` (
-  `id` varchar(255) NOT NULL,
+  `id` int(11) auto_increment,
   `majname` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -71,7 +71,7 @@ CREATE TABLE `major` (
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
-  `id` varchar(255) NOT NULL,
+  `id` int(11) auto_increment,
   `rolename` varchar(255) DEFAULT NULL,
   `permition` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -86,7 +86,7 @@ CREATE TABLE `role` (
 -- ----------------------------
 DROP TABLE IF EXISTS `school`;
 CREATE TABLE `school` (
-  `id` varchar(255) NOT NULL,
+  `id` int(11) auto_increment,
   `schoolname` varchar(255) DEFAULT NULL,
   `code` varchar(255) DEFAULT NULL,
   `desc` varchar(255) DEFAULT NULL,
@@ -103,9 +103,9 @@ CREATE TABLE `school` (
 -- ----------------------------
 DROP TABLE IF EXISTS `schoolmajor`;
 CREATE TABLE `schoolmajor` (
-  `id` varchar(255) NOT NULL,
-  `schid` varchar(255) DEFAULT NULL,
-  `majid` varchar(255) DEFAULT NULL,
+  `id` int(11) auto_increment,
+  `schid` int(11) DEFAULT NULL,
+  `majid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -120,11 +120,11 @@ CREATE TABLE `schoolmajor` (
 -- ----------------------------
 DROP TABLE IF EXISTS `summary`;
 CREATE TABLE `summary` (
-  `id` varchar(255) NOT NULL,
-  `userid` varchar(255) DEFAULT '-1' COMMENT '0：本学校开放1：全部开放，-1否',
+  `id` int(11) auto_increment,
+  `userid` int(11) DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
-  `hide` tinyint(4) DEFAULT NULL,
+  `hide` tinyint(4) DEFAULT -1 COMMENT '0：本学校开放1：全部开放，-1否',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -139,11 +139,11 @@ CREATE TABLE `summary` (
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `id` varchar(255) NOT NULL,
+  `id` int(11) auto_increment,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-	`userinfoid` varchar(255) NOT NULL,
-  `roleid` varchar(255) NOT NULL,
+	`userinfoid` int(11) DEFAULT NULL,
+  `roleid` int(11) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '0：正常，-1：异常',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -157,15 +157,15 @@ CREATE TABLE `user` (
 -- ----------------------------
 DROP TABLE IF EXISTS `userinfo`;
 CREATE TABLE `userinfo` (
-  `id` varchar(255) NOT NULL,
+  `id` int(11) auto_increment,
   `name` varchar(255) DEFAULT NULL,
   `sex` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0：女，1：男',
   `desc` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
   `qq` varchar(255) DEFAULT NULL,
 	`no` varchar(255) DEFAULT NULL,
-	`schid` varchar(255) DEFAULT NULL,
-	`majid` varchar(255) DEFAULT NULL,
+	`schid` int(11) DEFAULT NULL,
+	`majid` int(11) DEFAULT NULL,
 	`remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

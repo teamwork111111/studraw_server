@@ -36,6 +36,11 @@ public interface UserDao {
     @Select("select * from user where username = #{username} and password = #{password}")
     User login(String username, String password);
 
-    //插入
+    /**
+     * 注册用户
+     * @param user
+     * @return
+     */
+    @Insert("insert into user(username,password,roleid) values (#{username},#{password},#{roleid})")
     Integer insert(User user);
 }

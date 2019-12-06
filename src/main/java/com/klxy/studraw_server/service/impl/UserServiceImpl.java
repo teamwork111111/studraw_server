@@ -27,4 +27,10 @@ public class UserServiceImpl implements UserService {
     public User login(String username, String password) {
         return userDao.login(username, password);
     }
+
+    @Override
+    public Integer insert(User user) {
+        return userDao.insert(user);
+    }
+
 }
