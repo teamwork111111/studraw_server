@@ -4,5 +4,5 @@ import com.klxy.studraw_server.model.Role;
 
 public interface RoleService {
     //查询
-    Role getRoleByRoleid(String roleid);
+    Role getRoleByRoleid(int roleid);
 }

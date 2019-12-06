@@ -1,17 +1,17 @@
 package com.klxy.studraw_server.model;
 
 public class School {
-    private String id;
+    private int id;
     private String schoolname;
     private String code;
     private String desc;
     private String logo;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -50,7 +50,7 @@ public class School {
     @Override
     public String toString() {
         return "School{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", schoolname='" + schoolname + '\'' +
                 ", code='" + code + '\'' +
                 ", desc='" + desc + '\'' +

@@ -10,5 +10,5 @@ public interface MajorDao {
      * @return
      */
     @Select("SELECT * FROM major where id = #{majid}")
-    Major getMajorByMajid(String majid);
+    Major getMajorByMajid(int majid);
 }

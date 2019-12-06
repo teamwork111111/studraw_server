@@ -1,36 +1,20 @@
 package com.klxy.studraw_server.model;
 
 public class User {
-    private String id;
+    private int id;
     private String username;
     private String password;
-    private String userinfoid;
-    private String roleid;
+    private int userinfoid;
+    private int roleid;
     private int status;
     private Userinfo userinfo;
     private Role role;
 
-    public Userinfo getUserinfo() {
-        return userinfo;
-    }
-
-    public void setUserinfo(Userinfo userinfo) {
-        this.userinfo = userinfo;
-    }
-
-    public String getUserinfoid() {
-        return userinfoid;
-    }
-
-    public void setUserinfoid(String userinfoid) {
-        this.userinfoid = userinfoid;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -50,11 +34,19 @@ public class User {
         this.password = password;
     }
 
-    public String getRoleid() {
+    public int getUserinfoid() {
+        return userinfoid;
+    }
+
+    public void setUserinfoid(int userinfoid) {
+        this.userinfoid = userinfoid;
+    }
+
+    public int getRoleid() {
         return roleid;
     }
 
-    public void setRoleid(String roleid) {
+    public void setRoleid(int roleid) {
         this.roleid = roleid;
     }
 
@@ -64,6 +56,14 @@ public class User {
 
     public void setStatus(int status) {
         this.status = status;
+    }
+
+    public Userinfo getUserinfo() {
+        return userinfo;
+    }
+
+    public void setUserinfo(Userinfo userinfo) {
+        this.userinfo = userinfo;
     }
 
     public Role getRole() {
@@ -77,11 +77,11 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", userinfoid='" + userinfoid + '\'' +
-                ", roleid='" + roleid + '\'' +
+                ", userinfoid=" + userinfoid +
+                ", roleid=" + roleid +
                 ", status=" + status +
                 ", userinfo=" + userinfo +
                 ", role=" + role +

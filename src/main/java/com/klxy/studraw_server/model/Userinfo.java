@@ -1,80 +1,24 @@
 package com.klxy.studraw_server.model;
 
 public class Userinfo {
-    private String id;
+    private int id;
     private String name;
     private int sex;
     private String desc;
     private String image;
     private String qq;
     private String no;
-    private String schid;
-    private String majid;
+    private int schid;
+    private int majid;
     private String remark;
     private School school;
     private Major major;
 
-    public School getSchool() {
-        return school;
-    }
-
-    public void setSchool(School school) {
-        this.school = school;
-    }
-
-    public Major getMajor() {
-        return major;
-    }
-
-    public void setMajor(Major major) {
-        this.major = major;
-    }
-
-    public String getQq() {
-        return qq;
-    }
-
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
-
-    public String getNo() {
-        return no;
-    }
-
-    public void setNo(String no) {
-        this.no = no;
-    }
-
-    public String getSchid() {
-        return schid;
-    }
-
-    public void setSchid(String schid) {
-        this.schid = schid;
-    }
-
-    public String getMajid() {
-        return majid;
-    }
-
-    public void setMajid(String majid) {
-        this.majid = majid;
-    }
-
-    public String getRemark() {
-        return remark;
-    }
-
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -110,19 +54,74 @@ public class Userinfo {
         this.image = image;
     }
 
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
+    }
+
+    public int getSchid() {
+        return schid;
+    }
+
+    public void setSchid(int schid) {
+        this.schid = schid;
+    }
+
+    public int getMajid() {
+        return majid;
+    }
+
+    public void setMajid(int majid) {
+        this.majid = majid;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
+    }
 
     @Override
     public String toString() {
         return "Userinfo{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", sex=" + sex +
                 ", desc='" + desc + '\'' +
                 ", image='" + image + '\'' +
                 ", qq='" + qq + '\'' +
                 ", no='" + no + '\'' +
-                ", schid='" + schid + '\'' +
-                ", majid='" + majid + '\'' +
+                ", schid=" + schid +
+                ", majid=" + majid +
                 ", remark='" + remark + '\'' +
                 ", school=" + school +
                 ", major=" + major +

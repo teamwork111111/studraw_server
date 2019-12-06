@@ -29,6 +29,6 @@ public interface SchoolmajorDao {
             @Result(property="school",column="schid",one=@One(select="com.klxy.studraw_server.dao.SchoolDao.getSchoolBySchid")),
             @Result(property="major",column="majid",one=@One(select="com.klxy.studraw_server.dao.MajorDao.getMajorByMajid"))
     })
-    Schoolmajor getSchoolMajorByid(String smid);
+    Schoolmajor getSchoolMajorByid(int smid);
 
 }

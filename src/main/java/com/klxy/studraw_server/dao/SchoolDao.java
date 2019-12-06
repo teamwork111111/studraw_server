@@ -10,5 +10,5 @@ public interface SchoolDao {
      * @return
      */
     @Select("SELECT * FROM school where id = #{schid}")
-    School getSchoolBySchid(String schid);
+    School getSchoolBySchid(int schid);
 }

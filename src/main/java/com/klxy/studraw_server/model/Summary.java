@@ -3,26 +3,25 @@ package com.klxy.studraw_server.model;
 import java.util.Date;
 
 public class Summary {
-    private String id;
-    private String userid;
+    private int id;
+    private int userid;
     private Date createtime;
     private String content;
     private int hide;
 
-
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getUserid() {
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 
@@ -53,8 +52,8 @@ public class Summary {
     @Override
     public String toString() {
         return "Summary{" +
-                "id='" + id + '\'' +
-                ", userid='" + userid + '\'' +
+                "id=" + id +
+                ", userid=" + userid +
                 ", createtime=" + createtime +
                 ", content='" + content + '\'' +
                 ", hide=" + hide +

@@ -17,6 +17,8 @@ public class UserController {
 
     /**
      * 测试查询所有用户
+     * http://localhost:8081/api/user/getAllUser
+     *
      * @return
      */
     @RequestMapping("/getAllUser")
@@ -26,11 +28,25 @@ public class UserController {
 
     /**
      *  查询所有用户，同时联合查询到关联的role角色
-     *  测试链接：http://localhost:8081/api/user/getAllUser
+     *  浏览器测试：http://localhost:8081/api/user/getAllUser1
      * @return
      */
     @RequestMapping("/getAllUser1")
     public List<User> getAllUser1(){
         return userService.getAllUser1();
     }
+
+    /**
+     * 用户登录方法
+     * 浏览器测试：http://localhost:8081/api/user/login?username=15066668888&password=123456
+     * @param username
+     * @param password
+     * @return
+     */
+    @RequestMapping("/login")
+    public User login(String username, String password) {
+        return userService.login(username, password);
+    }
+
+
 }

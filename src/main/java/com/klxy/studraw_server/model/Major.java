@@ -1,15 +1,15 @@
 package com.klxy.studraw_server.model;
 
 public class Major {
-    private String id;
+    private int id;
     private String majname;
     private String remark;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -32,7 +32,7 @@ public class Major {
     @Override
     public String toString() {
         return "Major{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", majname='" + majname + '\'' +
                 ", remark='" + remark + '\'' +
                 '}';

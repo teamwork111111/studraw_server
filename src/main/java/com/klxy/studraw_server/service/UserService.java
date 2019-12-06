@@ -9,4 +9,6 @@ public interface UserService {
     List<User> getAllUser();//xml方式
 
     List<User> getAllUser1(); //注解方式
+
+    User login(String username, String password);//用户登录
 }

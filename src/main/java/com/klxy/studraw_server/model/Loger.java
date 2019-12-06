@@ -3,24 +3,24 @@ package com.klxy.studraw_server.model;
 import java.util.Date;
 
 public class Loger {
-    private String id;
-    private String userid;
+    private int id;
+    private int userid;
     private Date logtime;
     private String logip;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getUserid() {
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 
@@ -43,8 +43,8 @@ public class Loger {
     @Override
     public String toString() {
         return "Loger{" +
-                "id='" + id + '\'' +
-                ", userid='" + userid + '\'' +
+                "id=" + id +
+                ", userid=" + userid +
                 ", logtime=" + logtime +
                 ", logip='" + logip + '\'' +
                 '}';

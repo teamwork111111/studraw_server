@@ -1,15 +1,15 @@
 package com.klxy.studraw_server.model;
 
 public class Role {
-    private String id;
+    private int id;
     private String rolename;
     private String permition;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -32,7 +32,7 @@ public class Role {
     @Override
     public String toString() {
         return "Role{" +
-                "id='" + id + '\'' +
+                "id=" + id +
                 ", rolename='" + rolename + '\'' +
                 ", permition='" + permition + '\'' +
                 '}';

@@ -3,25 +3,25 @@ package com.klxy.studraw_server.model;
 import java.util.Date;
 
 public class Feedback {
-    private String id;
-    private String sumid;
+    private int id;
+    private int sumid;
     private Date createtime;
     private String content;
-    private String userid;
+    private int userid;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getSumid() {
+    public int getSumid() {
         return sumid;
     }
 
-    public void setSumid(String sumid) {
+    public void setSumid(int sumid) {
         this.sumid = sumid;
     }
 
@@ -41,22 +41,22 @@ public class Feedback {
         this.content = content;
     }
 
-    public String getUserid() {
+    public int getUserid() {
         return userid;
     }
 
-    public void setUserid(String userid) {
+    public void setUserid(int userid) {
         this.userid = userid;
     }
 
     @Override
     public String toString() {
         return "Feedback{" +
-                "id='" + id + '\'' +
-                ", sumid='" + sumid + '\'' +
+                "id=" + id +
+                ", sumid=" + sumid +
                 ", createtime=" + createtime +
                 ", content='" + content + '\'' +
-                ", userid='" + userid + '\'' +
+                ", userid=" + userid +
                 '}';
     }
 }

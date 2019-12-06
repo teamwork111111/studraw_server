@@ -26,4 +26,16 @@ public interface UserDao {
             @Result(property="role",column="roleid",one=@One(select="com.klxy.studraw_server.dao.RoleDao.getRoleByRoleid"))
     })
     List<User> getAllUser1();
+
+    /**
+     * 用户登录方法
+     * @param username
+     * @param password
+     * @return
+     */
+    @Select("select * from user where username = #{username} and password = #{password}")
+    User login(String username, String password);
+
+    //插入
+    Integer insert(User user);
 }

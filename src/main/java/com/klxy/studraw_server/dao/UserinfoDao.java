@@ -29,7 +29,7 @@ public interface UserinfoDao {
             @Result(property="school",column="schid",one=@One(select="com.klxy.studraw_server.dao.SchoolDao.getSchoolBySchid")),
             @Result(property="major",column="majid",one=@One(select="com.klxy.studraw_server.dao.MajorDao.getMajorByMajid"))
     })
-    Userinfo getUserinfoByUserinfoid(String userinfoid);
+    Userinfo getUserinfoByUserinfoid(int userinfoid);
 
 
 }
