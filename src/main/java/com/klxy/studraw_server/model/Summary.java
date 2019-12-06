@@ -8,6 +8,7 @@ public class Summary {
     private Date createtime;
     private String content;
     private int hide;
+    private User user;
 
     public int getId() {
         return id;
@@ -49,6 +50,14 @@ public class Summary {
         this.hide = hide;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Summary{" +
@@ -57,6 +66,7 @@ public class Summary {
                 ", createtime=" + createtime +
                 ", content='" + content + '\'' +
                 ", hide=" + hide +
+                ", user=" + user +
                 '}';
     }
 }

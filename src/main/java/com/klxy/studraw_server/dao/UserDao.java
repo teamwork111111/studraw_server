@@ -28,6 +28,20 @@ public interface UserDao {
     List<User> getAllUser1();
 
     /**
+     * 安装id查询用户
+     * @param id
+     * @return
+     */
+    @Select("select * from user where id = #{id}")
+    @Results(value = {
+            @Result(property = "userinfoid",column = "userinfoid"),
+            @Result(property = "roleid",column = "roleid"),
+            @Result(property="userinfo",column="userinfoid",one=@One(select="com.klxy.studraw_server.dao.UserinfoDao.getUserinfoByUserinfoid")),
+            @Result(property="role",column="roleid",one=@One(select="com.klxy.studraw_server.dao.RoleDao.getRoleByRoleid"))
+    })
+    User getUserByid(int id);
+
+    /**
      * 用户登录方法
      * @param username
      * @param password

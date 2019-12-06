@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.klxy.studraw_server.dao.SummaryDao">
+
+    <resultMap id="s1" type="com.klxy.studraw_server.model.Summary">
+        <result column="userid" property="userid" />
+        <association property="user" select="com.klxy.studraw_server.dao.UserDao.getAllUser" column="userid"></association>
+    </resultMap>
+    <select id="getSummaryByCondition" resultMap="s1">
+        SELECT * FROM user
+    </select>
+
+
+
+</mapper>

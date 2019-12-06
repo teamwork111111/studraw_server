@@ -37,6 +37,17 @@ public class UserController {
     }
 
     /**
+     * 安装id查询用户
+     * 浏览器测试：http://localhost:8081/api/user/getUserByid?id=1
+     * @param id
+     * @return
+     */
+    @RequestMapping("/getUserByid")
+    public User getUserByid(int id){
+        return userService.getUserByid(id);
+    }
+
+    /**
      * 用户登录方法
      * 浏览器测试：http://localhost:8081/api/user/login?username=15066668888&password=123456
      * @param username

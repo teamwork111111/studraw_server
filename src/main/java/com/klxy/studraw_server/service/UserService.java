@@ -10,6 +10,8 @@ public interface UserService {
 
     List<User> getAllUser1(); //注解方式
 
+    User getUserByid(int id);//按id查询用户
+
     User login(String username, String password);//用户登录
 
     Integer insert(User user);//用户注册
