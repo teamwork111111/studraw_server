@@ -17,7 +17,7 @@ public interface SummaryDao {
     @Select("SELECT * FROM summary")
     @Results(value = {
             @Result(property = "userid",column = "userid"),
-            @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getAllUser1")),
+            @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid")),
     })
     List<Summary> getAllSummary();
 

@@ -122,7 +122,7 @@ DROP TABLE IF EXISTS `summary`;
 CREATE TABLE `summary` (
   `id` int(11) auto_increment,
   `userid` int(11) DEFAULT NULL,
-  `createtime` datetime DEFAULT NULL,
+  `createtime` datetime DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `content` varchar(255) DEFAULT NULL,
   `hide` tinyint(4) DEFAULT -1 COMMENT '0：本学校开放1：全部开放，-1否',
   PRIMARY KEY (`id`)
