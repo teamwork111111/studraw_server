@@ -43,4 +43,13 @@ public interface UserDao {
      */
     @Insert("insert into user(username,password,roleid) values (#{username},#{password},#{roleid})")
     Integer insert(User user);
+
+    /**
+     * 用户写完UserInfo表基本信息后，返回来更新User表的userinfoid即，User userinfoid = UserInfo id
+     * @param id
+     * @param userinfoid
+     * @return
+     */
+    @Update("update user set userinfoid=#{userinfoid} where id=#{id}")
+    Integer adduserinfoid(@Param("id") int id, @Param("userinfoid") int userinfoid);
 }

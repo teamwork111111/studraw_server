@@ -13,4 +13,6 @@ public interface UserService {
     User login(String username, String password);//用户登录
 
     Integer insert(User user);//用户注册
+
+    Integer adduserinfoid(int id, int userinfoid);//完善User表userinfoid
 }
