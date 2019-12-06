@@ -2,11 +2,11 @@ package com.klxy.studraw_server.model;
 
 import java.util.Date;
 
-public class Lebel {
+public class Label {
     private String id;
     private String userid;
     private Date createtime;
-    private String lebellist;
+    private String labellist;
     private String remark;
 
     public String getId() {
@@ -33,12 +33,12 @@ public class Lebel {
         this.createtime = createtime;
     }
 
-    public String getLebellist() {
-        return lebellist;
+    public String getLabellist() {
+        return labellist;
     }
 
-    public void setLebellist(String lebellist) {
-        this.lebellist = lebellist;
+    public void setLabellist(String labellist) {
+        this.labellist = labellist;
     }
 
     public String getRemark() {
@@ -51,11 +51,11 @@ public class Lebel {
 
     @Override
     public String toString() {
-        return "Lebel{" +
+        return "Label{" +
                 "id='" + id + '\'' +
                 ", userid='" + userid + '\'' +
                 ", createtime=" + createtime +
-                ", lebellist='" + lebellist + '\'' +
+                ", labellist='" + labellist + '\'' +
                 ", remark='" + remark + '\'' +
                 '}';
     }

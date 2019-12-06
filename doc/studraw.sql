@@ -1,22 +1,8 @@
-/*
-Navicat MySQL Data Transfer
-
-Source Server         : 120.79.42.237_3306-李颖鹏
-Source Server Version : 50727
-Source Host           : 120.79.42.237:3306
-Source Database       : studraw
-
-Target Server Type    : MYSQL
-Target Server Version : 50727
-File Encoding         : 65001
-
-Date: 2019-12-03 17:25:22
-*/
-
+-- 取消外键约束
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `feedback`
+-- 9.Table structure for `feedback`
 -- ----------------------------
 DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
@@ -33,24 +19,24 @@ CREATE TABLE `feedback` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `lebel`
+-- 10.Table structure for `label`
 -- ----------------------------
-DROP TABLE IF EXISTS `lebel`;
-CREATE TABLE `lebel` (
+DROP TABLE IF EXISTS `label`;
+CREATE TABLE `label` (
   `id` varchar(255) NOT NULL,
   `userid` varchar(255) DEFAULT NULL,
   `createtime` datetime DEFAULT NULL,
-  `lebellist` varchar(255) DEFAULT NULL,
+  `labellist` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
--- Records of lebel
+-- Records of label
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `loger`
+-- 3.Table structure for `loger`
 -- ----------------------------
 DROP TABLE IF EXISTS `loger`;
 CREATE TABLE `loger` (
@@ -66,7 +52,7 @@ CREATE TABLE `loger` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `major`
+-- 6.Table structure for `major`
 -- ----------------------------
 DROP TABLE IF EXISTS `major`;
 CREATE TABLE `major` (
@@ -81,7 +67,7 @@ CREATE TABLE `major` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `role`
+-- 2.Table structure for `role`
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
@@ -96,7 +82,7 @@ CREATE TABLE `role` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `school`
+-- 5.Table structure for `school`
 -- ----------------------------
 DROP TABLE IF EXISTS `school`;
 CREATE TABLE `school` (
@@ -113,7 +99,7 @@ CREATE TABLE `school` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `schoolmajor`
+-- 7.Table structure for `schoolmajor`
 -- ----------------------------
 DROP TABLE IF EXISTS `schoolmajor`;
 CREATE TABLE `schoolmajor` (
@@ -127,23 +113,10 @@ CREATE TABLE `schoolmajor` (
 -- Records of schoolmajor
 -- ----------------------------
 
--- ----------------------------
--- Table structure for `studentinfo`
--- ----------------------------
-DROP TABLE IF EXISTS `studentinfo`;
-CREATE TABLE `studentinfo` (
-  `id` varchar(255) NOT NULL,
-  `no` varchar(255) DEFAULT NULL,
-  `smid` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- ----------------------------
--- Records of studentinfo
--- ----------------------------
-
--- ----------------------------
--- Table structure for `summary`
+-- 8.Table structure for `summary`
 -- ----------------------------
 DROP TABLE IF EXISTS `summary`;
 CREATE TABLE `summary` (
@@ -159,30 +132,17 @@ CREATE TABLE `summary` (
 -- Records of summary
 -- ----------------------------
 
--- ----------------------------
--- Table structure for `teacherinfo`
--- ----------------------------
-DROP TABLE IF EXISTS `teacherinfo`;
-CREATE TABLE `teacherinfo` (
-  `id` varchar(255) NOT NULL,
-  `no` varchar(255) DEFAULT NULL,
-  `schid` varchar(255) DEFAULT NULL,
-  `remark` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- ----------------------------
--- Records of teacherinfo
--- ----------------------------
-
--- ----------------------------
--- Table structure for `user`
+-- 1.Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` varchar(255) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+	`userinfoid` varchar(255) NOT NULL,
   `roleid` varchar(255) NOT NULL,
   `status` int(11) NOT NULL DEFAULT '0' COMMENT '0：正常，-1：异常',
   PRIMARY KEY (`id`)
@@ -193,7 +153,7 @@ CREATE TABLE `user` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `userinfo`
+-- 4.Table structure for `userinfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `userinfo`;
 CREATE TABLE `userinfo` (
@@ -202,7 +162,11 @@ CREATE TABLE `userinfo` (
   `sex` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0：女，1：男',
   `desc` varchar(255) DEFAULT NULL,
   `image` varchar(255) DEFAULT NULL,
-  `tel` varchar(255) DEFAULT NULL,
+  `qq` varchar(255) DEFAULT NULL,
+	`no` varchar(255) DEFAULT NULL,
+	`schid` varchar(255) DEFAULT NULL,
+	`majid` varchar(255) DEFAULT NULL,
+	`remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

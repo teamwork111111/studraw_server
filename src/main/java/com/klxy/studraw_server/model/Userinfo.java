@@ -6,7 +6,69 @@ public class Userinfo {
     private int sex;
     private String desc;
     private String image;
-    private String tel;
+    private String qq;
+    private String no;
+    private String schid;
+    private String majid;
+    private String remark;
+    private School school;
+    private Major major;
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
+    public Major getMajor() {
+        return major;
+    }
+
+    public void setMajor(Major major) {
+        this.major = major;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public String getNo() {
+        return no;
+    }
+
+    public void setNo(String no) {
+        this.no = no;
+    }
+
+    public String getSchid() {
+        return schid;
+    }
+
+    public void setSchid(String schid) {
+        this.schid = schid;
+    }
+
+    public String getMajid() {
+        return majid;
+    }
+
+    public void setMajid(String majid) {
+        this.majid = majid;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
     public String getId() {
         return id;
@@ -48,13 +110,6 @@ public class Userinfo {
         this.image = image;
     }
 
-    public String getTel() {
-        return tel;
-    }
-
-    public void setTel(String tel) {
-        this.tel = tel;
-    }
 
     @Override
     public String toString() {
@@ -64,7 +119,13 @@ public class Userinfo {
                 ", sex=" + sex +
                 ", desc='" + desc + '\'' +
                 ", image='" + image + '\'' +
-                ", tel='" + tel + '\'' +
+                ", qq='" + qq + '\'' +
+                ", no='" + no + '\'' +
+                ", schid='" + schid + '\'' +
+                ", majid='" + majid + '\'' +
+                ", remark='" + remark + '\'' +
+                ", school=" + school +
+                ", major=" + major +
                 '}';
     }
 }

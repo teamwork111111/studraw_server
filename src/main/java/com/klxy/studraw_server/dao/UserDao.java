@@ -20,7 +20,9 @@ public interface UserDao {
      */
     @Select("select * from user")
     @Results(value = {
+            @Result(property = "userinfoid",column = "userinfoid"),
             @Result(property = "roleid",column = "roleid"),
+            @Result(property="userinfo",column="userinfoid",one=@One(select="com.klxy.studraw_server.dao.UserinfoDao.getUserinfoByUserinfoid")),
             @Result(property="role",column="roleid",one=@One(select="com.klxy.studraw_server.dao.RoleDao.getRoleByRoleid"))
     })
     List<User> getAllUser1();

@@ -9,6 +9,7 @@ public class Summary {
     private String content;
     private int hide;
 
+
     public String getId() {
         return id;
     }

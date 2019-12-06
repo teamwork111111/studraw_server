@@ -9,12 +9,15 @@
     association为User类关联的Role角色的值，通过一个select条件查询得到，column的值作为查询的条件
     -->
     <resultMap id="role1" type="com.klxy.studraw_server.model.User">
+        <result column="userinfoid" property="userinfoid" />
         <result column="roleid" property="roleid" />
+        <association property="userinfo" select="com.klxy.studraw_server.dao.UserinfoDao.getUserinfoByUserinfoid" column="userinfoid"></association>
         <association property="role" select="com.klxy.studraw_server.dao.RoleDao.getRoleByRoleid" column="roleid"></association>
     </resultMap>
     <select id="getAllUser" resultMap="role1">
         SELECT * FROM user
     </select>
+
 
 
 </mapper>

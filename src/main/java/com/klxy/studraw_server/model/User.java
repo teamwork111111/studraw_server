@@ -4,9 +4,27 @@ public class User {
     private String id;
     private String username;
     private String password;
+    private String userinfoid;
     private String roleid;
     private int status;
+    private Userinfo userinfo;
     private Role role;
+
+    public Userinfo getUserinfo() {
+        return userinfo;
+    }
+
+    public void setUserinfo(Userinfo userinfo) {
+        this.userinfo = userinfo;
+    }
+
+    public String getUserinfoid() {
+        return userinfoid;
+    }
+
+    public void setUserinfoid(String userinfoid) {
+        this.userinfoid = userinfoid;
+    }
 
     public String getId() {
         return id;
@@ -62,8 +80,10 @@ public class User {
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", userinfoid='" + userinfoid + '\'' +
                 ", roleid='" + roleid + '\'' +
                 ", status=" + status +
+                ", userinfo=" + userinfo +
                 ", role=" + role +
                 '}';
     }
