@@ -5,6 +5,7 @@ public class Teacherinfo {
     private String no;
     private String schid;
     private String remark;
+    private School school;
 
     public String getId() {
         return id;
@@ -38,6 +39,14 @@ public class Teacherinfo {
         this.remark = remark;
     }
 
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
+
     @Override
     public String toString() {
         return "Teacherinfo{" +
@@ -45,6 +54,7 @@ public class Teacherinfo {
                 ", no='" + no + '\'' +
                 ", schid='" + schid + '\'' +
                 ", remark='" + remark + '\'' +
+                ", school=" + school +
                 '}';
     }
 }
