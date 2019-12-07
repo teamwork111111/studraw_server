@@ -16,7 +16,7 @@ public class SummaryController {
 
     /**
      * 查询所有summary
-     * 浏览器测试：
+     * 浏览器测试：http://localhost:8081/api/summary/getAllSummary
      * @return
      */
     @RequestMapping("/getAllSummary")
