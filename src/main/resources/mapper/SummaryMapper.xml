@@ -4,10 +4,39 @@
 
     <resultMap id="s1" type="com.klxy.studraw_server.model.Summary">
         <result column="userid" property="userid" />
-        <association property="user" select="com.klxy.studraw_server.dao.UserDao.getAllUser" column="userid"></association>
+        <!--collection和association都能调试通-->
+        <!--collection联合多个对象时用-->
+        <!--<collection property="user" column="userid" ofType="User" select="com.klxy.studraw_server.dao.UserDao.getUserByid">
+        </collection>-->
+        <!--association联合单个对象时用-->
+        <association property="user"
+        select="com.klxy.studraw_server.dao.UserDao.getUserByid"
+        column="userid"></association>
     </resultMap>
-    <select id="getSummaryByCondition" resultMap="s1">
-        SELECT * FROM user
+    <select id="getSummaryByCondition" resultMap="s1" parameterType="com.klxy.studraw_server.model.Summary">
+    <!--<select id="getSummaryByCondition" resultType="com.klxy.studraw_server.model.Summary" parameterType="com.klxy.studraw_server.model.Summary">-->
+        SELECT * FROM summary
+        <where>
+            <if test="userid != null and userid !=''">
+                AND userid = #{userid}
+            </if>
+            <if test="content !=null and content !=''">
+                <bind name="content" value="'%'+content+'%'"/>
+                AND content like #{content}
+            </if>
+        </where>
+        <!--<where>
+            <if test="userid != null and userid !=''">
+                AND userid = #{userid}
+            </if>
+            <if test="content !=null and content !=''">
+                <bind name="content" value="'%'+content+'%'"/>
+                AND content like #{content}
+            </if>
+            <if test="createtime1 !=null and createtime1 !='' and createtime2 !=null and createtime2 !=''" >
+                AND summary.createtime BETWEEN #{createtime1} and #{createtime2}
+            </if>
+        </where>-->
     </select>
 
 

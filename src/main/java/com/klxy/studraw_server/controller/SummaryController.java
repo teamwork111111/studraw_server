@@ -23,4 +23,28 @@ public class SummaryController {
     public List<Summary> getAllSummary(){
         return summaryService.getAllSummary();
     }
+
+    /**
+     * 条件查询summary
+     * 按userid查询，按content模糊查询，按createtime时间段查询
+     * 浏览器测试：
+     * http://localhost:8081/api/summary/getSummaryByCondition?userid=1
+     * http://localhost:8081/api/summary/getSummaryByCondition?content=一般
+     *
+     *
+     * 如下方式不行
+     * http://localhost:8081/api/summary/getSummaryByCondition?userid=1&content=''&createtime1=''&createtime2=''
+     * http://localhost:8081/api/summary/getSummaryByCondition?content=一般
+     * http://localhost:8081/api/summary/getSummaryByCondition?createtime1=2019-12-02&createtime2=2019-12-05
+     * @param summary
+     * @return
+     */
+    @RequestMapping("/getSummaryByCondition")
+    public List<Summary> getSummaryByCondition(Summary summary){
+        return summaryService.getSummaryByCondition(summary);
+    }
+    /*@RequestMapping("/getSummaryByCondition")
+    public List<Summary> getSummaryByCondition(int userid, String content, String createtime1, String createtime2){
+        return summaryService.getSummaryByCondition(userid,content,createtime1,createtime2);
+    }*/
 }

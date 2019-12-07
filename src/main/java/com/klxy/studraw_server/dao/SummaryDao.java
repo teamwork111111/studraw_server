@@ -2,10 +2,7 @@ package com.klxy.studraw_server.dao;
 
 import com.klxy.studraw_server.model.Major;
 import com.klxy.studraw_server.model.Summary;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -21,10 +18,17 @@ public interface SummaryDao {
     })
     List<Summary> getAllSummary();
 
+
+
     /**
-     * 动态查询，可以按userid查询，创建时间查询
-     * @param id
+     * 动态查询，实现按userid查询、按content内容模糊查询summary
+     * 如何实现按时间段来查询？begintime和endtime这两个字段在页面中传过来的，在model中没有这两个字段
+     * @param summary
      * @return
      */
-    Summary getSummaryByCondition(int id);
+    List<Summary> getSummaryByCondition(Summary summary);
+    /*List<Summary> getSummaryByCondition(@Param("userid") int userid,
+                                        @Param("content") String content,
+                                        @Param("createtime1") String createtime1,
+                                        @Param("createtime2") String createtime2 );*/
 }

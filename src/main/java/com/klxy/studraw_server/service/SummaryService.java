@@ -8,4 +8,7 @@ import java.util.List;
 public interface SummaryService {
 
     List<Summary> getAllSummary();
+
+    List<Summary> getSummaryByCondition(Summary summary);
+    /*List<Summary> getSummaryByCondition(int userid, String content,String createtime1, String createtime2);*/
 }

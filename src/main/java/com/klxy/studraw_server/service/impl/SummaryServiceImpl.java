@@ -21,4 +21,17 @@ public class SummaryServiceImpl implements SummaryService {
     public List<Summary> getAllSummary() {
         return summaryDao.getAllSummary();
     }
+
+    @Override
+    public List<Summary> getSummaryByCondition(Summary summary) {
+        return summaryDao.getSummaryByCondition(summary);
+    }
+
+
+    /*@Override
+    public List<Summary> getSummaryByCondition(int userid, String content, String createtime1, String createtime2) {
+        return summaryDao.getSummaryByCondition(userid,content,createtime1,createtime2);
+    }*/
+
+
 }
