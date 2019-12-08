@@ -8,11 +8,12 @@ DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
   `id` int(11) auto_increment,
   `sumid` int(11) DEFAULT NULL,
-  `createtime` datetime DEFAULT NULL,
+  `createtime` datetime DEFAULT CURRENT_TIMESTAMP,
   `content` varchar(255) DEFAULT NULL,
   `userid` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- ----------------------------
 -- Records of feedback
@@ -25,7 +26,7 @@ DROP TABLE IF EXISTS `label`;
 CREATE TABLE `label` (
   `id` int(11) auto_increment,
   `userid` int(11) DEFAULT NULL,
-  `createtime` datetime DEFAULT NULL,
+  `createtime` datetime DEFAULT CURRENT_TIMESTAMP,
   `labellist` varchar(255) DEFAULT NULL,
   `remark` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)

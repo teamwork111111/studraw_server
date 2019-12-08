@@ -66,4 +66,20 @@ public interface UserDao {
      */
     @Update("update user set userinfoid=#{userinfoid} where id=#{id}")
     Integer adduserinfoid(@Param("id") int id, @Param("userinfoid") int userinfoid);
+
+    /**
+     * 动态条件更新用户账号、密码、状态
+     * @param user
+     * @return
+     */
+    Integer uptUserByCondition(User user);
+
+    /**
+     * 删除用户
+     * 这里没有设置联级删除用户信息表，
+     * @param id
+     * @return
+     */
+    @Delete("delete from user where id =#{id}")
+    Integer delUser(int id);
 }

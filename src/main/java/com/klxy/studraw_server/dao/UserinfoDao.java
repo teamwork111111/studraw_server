@@ -1,10 +1,7 @@
 package com.klxy.studraw_server.dao;
 
 import com.klxy.studraw_server.model.Userinfo;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -30,6 +27,14 @@ public interface UserinfoDao {
             @Result(property="major",column="majid",one=@One(select="com.klxy.studraw_server.dao.MajorDao.getMajorByMajid"))
     })
     Userinfo getUserinfoByUserinfoid(int userinfoid);
+
+    /**
+     * 删除用户信息Userinfo
+     * @param id
+     * @return
+     */
+    @Delete("delete from userinfo where id = #{userinfoid}")
+    Integer delUserinfo(int id);
 
 
 }

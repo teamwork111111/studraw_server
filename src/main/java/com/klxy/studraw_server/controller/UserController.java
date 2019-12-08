@@ -86,4 +86,26 @@ public class UserController {
         return userService.adduserinfoid(id, userinfoid);
     }
 
+    /**
+     * 动态条件更新用户，动态条件有：username,password,status
+     * http://localhost:8081/api/user/uptUserByCondition?username=18800001111&password=000000&status=-1&id=1
+     * @param user
+     * @return
+     */
+    @RequestMapping("/uptUserByCondition")
+    public Integer uptUserByCondition(User user) {
+       return userService.uptUserByCondition(user);
+    }
+
+    /**
+     * 按用户id删除用户
+     * http://localhost:8081/api/user/delUser?id=7
+     * @param id
+     * @return
+     */
+    @RequestMapping("/delUser")
+    public Integer delUser(int id) {
+       return userService.delUser(id);
+    }
+
 }

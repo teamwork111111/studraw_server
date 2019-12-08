@@ -8,6 +8,7 @@ public class Label {
     private Date createtime;
     private String labellist;
     private String remark;
+    private User user;
 
     public int getId() {
         return id;
@@ -49,6 +50,14 @@ public class Label {
         this.remark = remark;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Label{" +
@@ -57,6 +66,7 @@ public class Label {
                 ", createtime=" + createtime +
                 ", labellist='" + labellist + '\'' +
                 ", remark='" + remark + '\'' +
+                ", user=" + user +
                 '}';
     }
 }

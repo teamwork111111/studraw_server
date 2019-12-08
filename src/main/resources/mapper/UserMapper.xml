@@ -18,6 +18,17 @@
         SELECT * FROM user
     </select>
 
+    <!--动态更新  @Update("update user set username=#{username},password=#{password},status=#{status} where id=#{id}")-->
+    <update id="uptUserByCondition" parameterType="com.klxy.studraw_server.model.User">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="username != null">username=#{username},</if>
+            <if test="password != null">password=#{password},</if>
+            <if test="status != null">status=#{status},</if>
+        </trim>
+        where id=#{id}
+    </update>
+
 
 
 </mapper>

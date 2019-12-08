@@ -17,4 +17,8 @@ public interface UserService {
     Integer insert(User user);//用户注册
 
     Integer adduserinfoid(int id, int userinfoid);//完善User表userinfoid
+
+    Integer uptUserByCondition(User user);
+
+    Integer delUser(int id);
 }

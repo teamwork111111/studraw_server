@@ -43,4 +43,14 @@ public class UserServiceImpl implements UserService {
         return userDao.adduserinfoid(id, userinfoid);
     }
 
+    @Override
+    public Integer uptUserByCondition(User user) {
+        return userDao.uptUserByCondition(user);
+    }
+
+    @Override
+    public Integer delUser(int id) {
+        return userDao.delUser(id);
+    }
+
 }
