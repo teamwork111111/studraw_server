@@ -1,6 +1,5 @@
 package com.klxy.studraw_server.dao;
 
-import com.klxy.studraw_server.model.Major;
 import com.klxy.studraw_server.model.Summary;
 import org.apache.ibatis.annotations.*;
 
@@ -31,4 +30,18 @@ public interface SummaryDao {
                                         @Param("content") String content,
                                         @Param("createtime1") String createtime1,
                                         @Param("createtime2") String createtime2 );*/
+
+    /**
+     * 按id查询summary
+     * http://localhost:8081/api/summary/getSummaryByid?id=1
+     * @param id
+     * @return
+     */
+    @Select("SELECT * FROM summary where id=#{0}")
+    @Results(value = {
+            @Result(property = "userid",column = "userid"),
+            @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid")),
+    })
+    Summary getSummaryByid(int id);
+
 }

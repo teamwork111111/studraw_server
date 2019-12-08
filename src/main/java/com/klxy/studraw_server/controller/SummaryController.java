@@ -47,4 +47,16 @@ public class SummaryController {
     public List<Summary> getSummaryByCondition(int userid, String content, String createtime1, String createtime2){
         return summaryService.getSummaryByCondition(userid,content,createtime1,createtime2);
     }*/
+
+    /**
+     * 按id查询Summary
+     * http://localhost:8081/api/summary/getSummaryByid/1
+     * @param id
+     * @return
+     */
+    @RequestMapping("/getSummaryByid")
+    public Summary getSummaryByid(int id){
+        return summaryService.getSummaryByid(id);
+    }
+
 }

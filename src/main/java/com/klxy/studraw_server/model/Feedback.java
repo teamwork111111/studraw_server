@@ -8,6 +8,8 @@ public class Feedback {
     private Date createtime;
     private String content;
     private int userid;
+    private Summary summary;
+    private User user;
 
     public int getId() {
         return id;
@@ -49,6 +51,22 @@ public class Feedback {
         this.userid = userid;
     }
 
+    public Summary getSummary() {
+        return summary;
+    }
+
+    public void setSummary(Summary summary) {
+        this.summary = summary;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Feedback{" +
@@ -57,6 +75,8 @@ public class Feedback {
                 ", createtime=" + createtime +
                 ", content='" + content + '\'' +
                 ", userid=" + userid +
+                ", summary=" + summary +
+                ", user=" + user +
                 '}';
     }
 }

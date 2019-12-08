@@ -11,4 +11,6 @@ public interface SummaryService {
 
     List<Summary> getSummaryByCondition(Summary summary);
     /*List<Summary> getSummaryByCondition(int userid, String content,String createtime1, String createtime2);*/
+
+    Summary getSummaryByid(int id);
 }
