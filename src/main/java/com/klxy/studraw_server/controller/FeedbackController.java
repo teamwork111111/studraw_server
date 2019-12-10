@@ -47,4 +47,25 @@ public class FeedbackController {
         return feedbackService.getFeedbackByuserid(userid);
     }
 
+    /**
+     * 添加评论
+     * http://localhost:8081/api/feedback/addFeedback?sumid=1&content=测试添加&userid=3
+     * @param feedback
+     * @return
+     */
+    @RequestMapping("/addFeedback")
+    public Integer addFeedback(Feedback feedback) {
+        return feedbackService.addFeedback(feedback);
+    }
+
+    /**
+     * 删除评论
+     * http://localhost:8081/api/feedback/delFeedback?id=6
+     * @param id
+     * @return
+     */
+    @RequestMapping("/delFeedback")
+    public Integer delFeedback(int id) {
+        return feedbackService.delFeedback(id);
+    }
 }

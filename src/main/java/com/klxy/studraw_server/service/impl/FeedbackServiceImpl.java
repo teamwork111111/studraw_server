@@ -28,4 +28,14 @@ public class FeedbackServiceImpl implements FeedbackService {
     public List<Feedback> getFeedbackByuserid(int userid) {
         return feedbackDao.getFeedbackByuserid(userid);
     }
+
+    @Override
+    public Integer addFeedback(Feedback feedback) {
+        return feedbackDao.addFeedback(feedback);
+    }
+
+    @Override
+    public Integer delFeedback(int id) {
+        return feedbackDao.delFeedback(id);
+    }
 }

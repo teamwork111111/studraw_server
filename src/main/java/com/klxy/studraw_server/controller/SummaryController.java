@@ -1,5 +1,6 @@
 package com.klxy.studraw_server.controller;
 
+import com.klxy.studraw_server.model.Feedback;
 import com.klxy.studraw_server.model.Summary;
 import com.klxy.studraw_server.service.SummaryService;
 import org.springframework.beans.factory.annotation.Autowired;

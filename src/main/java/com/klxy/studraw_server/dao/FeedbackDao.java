@@ -1,10 +1,7 @@
 package com.klxy.studraw_server.dao;
 
 import com.klxy.studraw_server.model.Feedback;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -51,4 +48,16 @@ public interface FeedbackDao {
             @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid"))
     })
     List<Feedback> getFeedbackByuserid(int userid);
+
+    //++
+    /*  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sumid` int(11) DEFAULT NULL,
+  `createtime` datetime DEFAULT CURRENT_TIMESTAMP,
+  `content` varchar(255) DEFAULT NULL,
+  `userid` int(11) DEFAULT NULL,*/
+    @Insert("insert into feedback values(default, #{sumid},default,#{content},#{userid})")
+    Integer addFeedback(Feedback feedback);
+
+    @Delete("delete from feedback where id = #{id}")
+    Integer delFeedback(int id);
 }
