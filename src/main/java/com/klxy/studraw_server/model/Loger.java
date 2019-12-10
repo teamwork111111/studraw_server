@@ -7,6 +7,15 @@ public class Loger {
     private int userid;
     private Date logtime;
     private String logip;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getId() {
         return id;
@@ -42,11 +51,12 @@ public class Loger {
 
     @Override
     public String toString() {
-        return "Loger{" +
+        return "LogerDao{" +
                 "id=" + id +
                 ", userid=" + userid +
                 ", logtime=" + logtime +
                 ", logip='" + logip + '\'' +
+                ", user=" + user +
                 '}';
     }
 }

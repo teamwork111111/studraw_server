@@ -43,7 +43,7 @@ DROP TABLE IF EXISTS `loger`;
 CREATE TABLE `loger` (
   `id` int(11) auto_increment,
   `userid` int(11) DEFAULT NULL,
-  `logtime` datetime DEFAULT NULL,
+  `logtime` datetime DEFAULT CURRENT_TIMESTAMP,
   `logip` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
