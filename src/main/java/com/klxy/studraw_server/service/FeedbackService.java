@@ -13,7 +13,6 @@ public interface FeedbackService {
 
     List<Feedback> getFeedbackByuserid(int userid);
 
-    //++
     Integer addFeedback(Feedback feedback);
 
     Integer delFeedback(int id);

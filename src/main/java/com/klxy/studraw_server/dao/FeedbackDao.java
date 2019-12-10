@@ -49,15 +49,20 @@ public interface FeedbackDao {
     })
     List<Feedback> getFeedbackByuserid(int userid);
 
-    //++
-    /*  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `sumid` int(11) DEFAULT NULL,
-  `createtime` datetime DEFAULT CURRENT_TIMESTAMP,
-  `content` varchar(255) DEFAULT NULL,
-  `userid` int(11) DEFAULT NULL,*/
+
+    /**
+     * 新增Feedback
+     * @param feedback
+     * @return
+     */
     @Insert("insert into feedback values(default, #{sumid},default,#{content},#{userid})")
     Integer addFeedback(Feedback feedback);
 
+    /**
+     * 按id删除Feedback
+     * @param id
+     * @return
+     */
     @Delete("delete from feedback where id = #{id}")
     Integer delFeedback(int id);
 }

@@ -44,11 +44,27 @@ public interface SummaryDao {
     })
     Summary getSummaryByid(int id);
 
-
+    /**
+     * 新增Summary
+     * @param summary
+     * @return
+     */
     @Insert("insert into summary values(default, #{userid},default,#{content},#{hide})")
     Integer addSummary(Summary summary);
+
+    /**
+     * 更新Summary
+     * @param summary
+     * @return
+     */
     @Update("update summary set content=#{content},hide=#{hide} where id = #{id}")
     Integer uptSummary(Summary summary);
+
+    /**
+     * 按id删除Summary
+     * @param id
+     * @return
+     */
     @Delete("delete from summary where id = #{id}")
     Integer delSummary(int id);
 

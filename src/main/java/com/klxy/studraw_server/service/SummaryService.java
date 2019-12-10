@@ -13,10 +13,8 @@ public interface SummaryService {
     List<Summary> getAllSummary();
 
     List<Summary> getSummaryByCondition(Summary summary);
-    /*List<Summary> getSummaryByCondition(int userid, String content,String createtime1, String createtime2);*/
 
     Summary getSummaryByid(int id);
-
 
     Integer addSummary(Summary summary);
     Integer uptSummary(Summary summary);
