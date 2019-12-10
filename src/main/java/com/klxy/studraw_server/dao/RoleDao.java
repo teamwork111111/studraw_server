@@ -41,7 +41,11 @@ public interface RoleDao {
     @Update("update role set rolename=#{rolename},permition=#{permition} where id = #{id}")
     Integer uptRole(Role role);
 
-
+    /**
+     * 按id删除role
+     * @param id
+     * @return
+     */
     @Delete("delete from role where id = #{id}")
     Integer delRole(int id);
 }
