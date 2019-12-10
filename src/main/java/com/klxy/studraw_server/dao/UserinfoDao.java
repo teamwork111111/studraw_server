@@ -28,6 +28,26 @@ public interface UserinfoDao {
     })
     Userinfo getUserinfoByUserinfoid(int userinfoid);
 
+
+
+    /**
+     * 新增Userinfo
+     * @param userinfo
+     * @return
+     */
+    @Insert("insert into userinfo values(default,#{name},#{sex},#{desc},#{image},#{qq},#{no},#{schid},#{majid},#{remark})")
+    Integer addUserinfo(Userinfo userinfo);
+
+    /**
+     * 更新userinfo
+     * desc为mysql关键字，所以写成userinfo.desc
+     * @param userinfo
+     * @return
+     */
+    /*id, name,sex(int),desc,image,qq,no,schid,majid,remark*/
+    @Update("update userinfo set name=#{name},sex=#{sex},userinfo.desc=#{desc},image=#{image},qq=#{qq},no=#{no},schid=#{schid},majid=#{majid},remark=#{remark} where id=#{id}")
+    Integer uptUserinfo(Userinfo userinfo);
+
     /**
      * 删除用户信息Userinfo
      * @param id
