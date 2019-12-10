@@ -43,10 +43,6 @@ public class SummaryController {
     public List<Summary> getSummaryByCondition(Summary summary){
         return summaryService.getSummaryByCondition(summary);
     }
-    /*@RequestMapping("/getSummaryByCondition")
-    public List<Summary> getSummaryByCondition(int userid, String content, String createtime1, String createtime2){
-        return summaryService.getSummaryByCondition(userid,content,createtime1,createtime2);
-    }*/
 
     /**
      * 按id查询Summary
@@ -57,6 +53,40 @@ public class SummaryController {
     @RequestMapping("/getSummaryByid")
     public Summary getSummaryByid(int id){
         return summaryService.getSummaryByid(id);
+    }
+
+
+    /**
+     * 新增summary
+     * http://localhost:8081/api/summary/addSummary?userid=1&content=测试新增&hide=0
+     * @param summary
+     * @return
+     */
+    @RequestMapping("/addSummary")
+    public Integer addSummary(Summary summary) {
+        return summaryService.addSummary(summary);
+    }
+
+    /**
+     * 更新summary
+     * http://localhost:8081/api/summary/uptSummary?id=1&content=测试更新&hide=0
+     * @param summary
+     * @return
+     */
+    @RequestMapping("/uptSummary")
+    public Integer uptSummary(Summary summary) {
+        return summaryService.uptSummary(summary);
+    }
+
+    /**
+     * 删除summary
+     * http://localhost:8081/api/summary/delSummary?id=7
+     * @param id
+     * @return
+     */
+    @RequestMapping("/delSummary")
+    public Integer delSummary(int id) {
+        return summaryService.delSummary(id);
     }
 
 }

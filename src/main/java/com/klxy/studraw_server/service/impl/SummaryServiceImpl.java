@@ -1,10 +1,7 @@
 package com.klxy.studraw_server.service.impl;
 
-import com.klxy.studraw_server.dao.RoleDao;
 import com.klxy.studraw_server.dao.SummaryDao;
-import com.klxy.studraw_server.model.Role;
 import com.klxy.studraw_server.model.Summary;
-import com.klxy.studraw_server.service.RoleService;
 import com.klxy.studraw_server.service.SummaryService;
 import org.springframework.stereotype.Service;
 
@@ -36,8 +33,20 @@ public class SummaryServiceImpl implements SummaryService {
         return summaryDao.getSummaryByid(id);
     }
 
+    @Override
+    public Integer addSummary(Summary summary) {
+        return summaryDao.addSummary(summary);
+    }
 
+    @Override
+    public Integer uptSummary(Summary summary) {
+        return summaryDao.uptSummary(summary);
+    }
 
+    @Override
+    public Integer delSummary(int id) {
+        return summaryDao.delSummary(id);
+    }
 
 
 }

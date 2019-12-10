@@ -44,4 +44,12 @@ public interface SummaryDao {
     })
     Summary getSummaryByid(int id);
 
+    
+    @Insert("insert into summary values(default, #{userid},default,#{content},#{hide})")
+    Integer addSummary(Summary summary);
+    @Update("update summary set content=#{content},hide=#{hide} where id = #{id}")
+    Integer uptSummary(Summary summary);
+    @Delete("delete from summary where id = #{id}")
+    Integer delSummary(int id);
+
 }
