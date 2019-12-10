@@ -35,4 +35,40 @@ public class LabelController {
     public List<Label> getLabelByuserid(int userid){
         return labelService.getLabelByuserid(userid);
     }
+
+    //++
+
+    /**
+     * 新增Label
+     * http://localhost:8081/api/label/addLabel?userid=1&labellist=测试新增&remark=测试
+     * @param label
+     * @return
+     */
+    @RequestMapping("/addLabel")
+    public Integer addLabel(Label label) {
+        return labelService.addLabel(label);
+    }
+
+    /**
+     * 更新Label
+     * http://localhost:8081/api/label/uptLabel?id=8&userid=1&labellist=测试更新&remark=测试
+     * @param label
+     * @return
+     */
+    @RequestMapping("/uptLabel")
+    public Integer uptLabel(Label label) {
+        return labelService.uptLabel(label);
+    }
+
+    /**
+     * 删除Label
+     * http://localhost:8081/api/label/delLabel?id=8
+     * @param id
+     * @return
+     */
+    @RequestMapping("/delLabel")
+    public Integer delLabel(int id) {
+        return labelService.delLabel(id);
+    }
+
 }

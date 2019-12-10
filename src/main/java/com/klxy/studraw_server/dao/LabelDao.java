@@ -1,10 +1,7 @@
 package com.klxy.studraw_server.dao;
 
 import com.klxy.studraw_server.model.Label;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -28,6 +25,30 @@ public interface LabelDao {
             @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid"))
     })
     List<Label> getLabelByuserid(int userid);
+
+    /**
+     * 新增Label
+     * @param label
+     * @return
+     */
+    @Insert("insert into label values(default,#{userid},default,#{labellist},#{remark})")
+    Integer addLabel(Label label);
+
+    /**
+     * 更新Label
+     * @param label
+     * @return
+     */
+    @Update("update label set labellist=#{labellist},remark=#{remark} where id = #{id}")
+    Integer uptLabel(Label label);
+
+    /**
+     * 删除Label
+     * @param id
+     * @return
+     */
+    @Delete("delete from label where id = #{id}")
+    Integer delLabel(int id);
 
 
 }

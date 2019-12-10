@@ -26,4 +26,19 @@ public class LabelServiceImpl implements LabelService {
     public List<Label> getLabelByuserid(int userid) {
         return labelDao.getLabelByuserid(userid);
     }
+
+    @Override
+    public Integer addLabel(Label label) {
+        return labelDao.addLabel(label);
+    }
+
+    @Override
+    public Integer uptLabel(Label label) {
+        return labelDao.uptLabel(label);
+    }
+
+    @Override
+    public Integer delLabel(int id) {
+        return labelDao.delLabel(id);
+    }
 }
