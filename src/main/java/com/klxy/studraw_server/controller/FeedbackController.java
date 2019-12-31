@@ -4,6 +4,7 @@ import com.klxy.studraw_server.model.Feedback;
 import com.klxy.studraw_server.service.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -21,8 +22,9 @@ public class FeedbackController {
      * @return
      */
     @RequestMapping("/getAllFeedback")
-    public List<Feedback> getAllFeedback(){
-        return feedbackService.getAllFeedback();
+    public Object getAllFeedback(@RequestParam(value = "pageNum",defaultValue = "1")int pageNum,
+                                         @RequestParam(value = "pageSize",defaultValue = "10")int pageSize){
+        return feedbackService.getAllFeedback(pageNum, pageSize);
     }
 
     /**

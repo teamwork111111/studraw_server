@@ -1,5 +1,7 @@
 package com.klxy.studraw_server.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.klxy.studraw_server.dao.UserDao;
 import com.klxy.studraw_server.model.User;
 import com.klxy.studraw_server.service.UserService;
@@ -14,8 +16,12 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public List<User> getAllUser() {
-        return userDao.getAllUser();
+    public Object getAllUser(User user, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<User> userList = userDao.getAllUser(user);
+        PageInfo<User> pageInfo = new PageInfo<>(userList);
+        return pageInfo;
+
     }
 
     @Override

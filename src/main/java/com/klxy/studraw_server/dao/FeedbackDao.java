@@ -36,6 +36,18 @@ public interface FeedbackDao {
     List<Feedback> getFeedbackBysumid(int sumid);
 
     /**
+     * 按sumid查询评论,不查summary信息
+     * @param sumid
+     * @return
+     */
+    @Select("select * from feedback where sumid = #{sumid}")
+    @Results(value = {
+            @Result(property = "userid",column = "userid"),
+            @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid"))
+    })
+    List<Feedback> getFeedbackBysumid1(int sumid);
+
+    /**
      * 按评论人userid查询评论
      * @param userid
      * @return

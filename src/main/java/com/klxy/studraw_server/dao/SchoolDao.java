@@ -21,8 +21,8 @@ public interface SchoolDao {
      * 查询所有school
      * @return
      */
-    @Select("select * from school")
-    List<School> getAllSchool();
+//    @Select("select * from school")
+    List<School> getAllSchool(School school);
 
     /**
      * 新增school

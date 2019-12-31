@@ -6,6 +6,7 @@ import com.klxy.studraw_server.service.LogerService;
 import com.klxy.studraw_server.service.SchoolService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -32,8 +33,10 @@ public class SchoolController {
      * @return
      */
     @RequestMapping("/getAllSchool")
-    public List<School> getAllSchool(){
-        return schoolService.getAllSchool();
+    public Object getAllSchool(School school,
+            @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                               @RequestParam(value = "pageSize", defaultValue = "10") int pageSize){
+        return schoolService.getAllSchool(school , pageNum, pageSize);
     }
 
     /**

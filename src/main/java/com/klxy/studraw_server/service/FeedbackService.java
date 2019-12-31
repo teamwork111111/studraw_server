@@ -7,9 +7,11 @@ import java.util.List;
 
 public interface FeedbackService {
     //查询所有评论
-    List<Feedback> getAllFeedback();
+    Object getAllFeedback(int pageNum, int pageSize);
 
     List<Feedback> getFeedbackBysumid(int sumid);
+
+    List<Feedback> getFeedbackBysumid1(int sumid);
 
     List<Feedback> getFeedbackByuserid(int userid);
 

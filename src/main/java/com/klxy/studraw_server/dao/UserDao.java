@@ -10,7 +10,7 @@ public interface UserDao {
      * 查询用户，采用xml形式查询，复杂的联合查询最好用xml形式。
      * @return
      */
-    List<User> getAllUser();
+    List<User> getAllUser(User user);
 
     /**
      * 查询user，采用注解形式

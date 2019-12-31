@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserService {
     //查询
-    List<User> getAllUser();//xml方式
+    Object getAllUser(User user, int pageNum, int pageSize);//xml方式
 
     List<User> getAllUser1(); //注解方式
 

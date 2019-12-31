@@ -4,6 +4,7 @@ import com.klxy.studraw_server.model.User;
 import com.klxy.studraw_server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -17,39 +18,45 @@ public class UserController {
 
     /**
      * 测试查询所有用户
-     * http://localhost:8081/api/user/getAllUser
+     * http://localhost:8081/api/user/getAllUser？page=2&size=5
+     * page=2&size=5
      *
      * @return
      */
     @RequestMapping("/getAllUser")
-    public List<User> getAllUser(){
-        return userService.getAllUser();
+    public Object getAllUser(User user,
+                             @RequestParam(value = "pageNum", defaultValue = "1") int pageNum,
+                             @RequestParam(value = "pageSize", defaultValue = "10") int pageSize) {
+        return userService.getAllUser(user, pageNum, pageSize);
     }
 
     /**
-     *  查询所有用户，同时联合查询到关联的role角色
-     *  浏览器测试：http://localhost:8081/api/user/getAllUser1
+     * 查询所有用户，同时联合查询到关联的role角色
+     * 浏览器测试：http://localhost:8081/api/user/getAllUser1
+     *
      * @return
      */
     @RequestMapping("/getAllUser1")
-    public List<User> getAllUser1(){
+    public List<User> getAllUser1() {
         return userService.getAllUser1();
     }
 
     /**
      * 安装id查询用户
      * 浏览器测试：http://localhost:8081/api/user/getUserByid?id=1
+     *
      * @param id
      * @return
      */
     @RequestMapping("/getUserByid")
-    public User getUserByid(int id){
+    public User getUserByid(int id) {
         return userService.getUserByid(id);
     }
 
     /**
      * 用户登录方法
      * 浏览器测试：http://localhost:8081/api/user/login?username=15066668888&password=123456
+     *
      * @param username
      * @param password
      * @return
@@ -70,42 +77,45 @@ public class UserController {
      * @return
      */
     @RequestMapping("/adduser")
-    public Integer addUser(User user){
+    public Integer addUser(User user) {
         return userService.insert(user);
     }
 
     /**
      * 根据Userinfo表的id，返回更新User表的userinfoid
      * 测试方法：http://localhost:8081/api/user/adduserinfoid?id=6&userinfoid=6
+     *
      * @param id
      * @param userinfoid
      * @return
      */
     @RequestMapping("/adduserinfoid")
-    public Integer adduserinfoid(int id, int userinfoid){
+    public Integer adduserinfoid(int id, int userinfoid) {
         return userService.adduserinfoid(id, userinfoid);
     }
 
     /**
      * 动态条件更新用户，动态条件有：username,password,status
      * http://localhost:8081/api/user/uptUserByCondition?username=18800001111&password=000000&status=-1&id=1
+     *
      * @param user
      * @return
      */
     @RequestMapping("/uptUserByCondition")
     public Integer uptUserByCondition(User user) {
-       return userService.uptUserByCondition(user);
+        return userService.uptUserByCondition(user);
     }
 
     /**
      * 按用户id删除用户
      * http://localhost:8081/api/user/delUser?id=7
+     *
      * @param id
      * @return
      */
     @RequestMapping("/delUser")
     public Integer delUser(int id) {
-       return userService.delUser(id);
+        return userService.delUser(id);
     }
 
 }

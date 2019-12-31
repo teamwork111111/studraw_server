@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.klxy.studraw_server.dao.SchoolDao">
+
+    <!--一对一（1个User对应一个角色）关联查询，用到resultMap
+    type为getAllUser方法的返回值类型，因为查询User，所以返回User的实体
+    result为非主键的手动映射，虽然column和property的值(roleid)相同，
+    但如果不配置，只能自动映射1次，赋值给column当参数后，roleid的值会变为null
+    association为User类关联的Role角色的值，通过一个select条件查询得到，column的值作为查询的条件
+    -->
+
+    <select id="getAllSchool" parameterType="com.klxy.studraw_server.model.School" resultType="com.klxy.studraw_server.model.School">
+        SELECT * FROM school
+        <where>
+            <if test="schoolname != null and schoolname !=''">
+                <bind name="schoolname" value="'%' + schoolname + '%'" />
+                AND schoolname like #{schoolname}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

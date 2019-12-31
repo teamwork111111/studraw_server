@@ -1,6 +1,7 @@
 package com.klxy.studraw_server.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Summary {
     private int id;
@@ -9,6 +10,16 @@ public class Summary {
     private String content;
     private int hide;
     private User user;
+    //查询summary时能把评论查出来
+    private List<Feedback> feedback;
+
+    public List<Feedback> getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(List<Feedback> feedback) {
+        this.feedback = feedback;
+    }
 
     public int getId() {
         return id;
@@ -67,6 +78,7 @@ public class Summary {
                 ", content='" + content + '\'' +
                 ", hide=" + hide +
                 ", user=" + user +
+                ", feedback=" + feedback +
                 '}';
     }
 }

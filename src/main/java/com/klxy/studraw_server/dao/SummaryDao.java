@@ -7,13 +7,16 @@ import java.util.List;
 
 public interface SummaryDao {
     /**
-     * 查询所有感想/总结
+     * 查询所有感想/总结, 附带查询出发表summary用户及每条summary的评论
      * @return
      */
     @Select("SELECT * FROM summary")
     @Results(value = {
             @Result(property = "userid",column = "userid"),
             @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid")),
+
+            @Result(id=true,property="id",column="id"),
+            @Result(property="feedback",column="id",many=@Many(select="com.klxy.studraw_server.dao.FeedbackDao.getFeedbackBysumid1"))
     })
     List<Summary> getAllSummary();
 

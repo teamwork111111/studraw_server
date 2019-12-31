@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface SchoolService {
     School getSchoolBySchid(int schid);
-    List<School> getAllSchool();
+    Object getAllSchool(School school, int pageNum, int pageSize);
     Integer addSchool(School school);
     Integer uptSchool(School school);
     Integer delSchool(int id);

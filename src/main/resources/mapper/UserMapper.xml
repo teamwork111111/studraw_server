@@ -14,8 +14,17 @@
         <association property="userinfo" select="com.klxy.studraw_server.dao.UserinfoDao.getUserinfoByUserinfoid" column="userinfoid"></association>
         <association property="role" select="com.klxy.studraw_server.dao.RoleDao.getRoleByRoleid" column="roleid"></association>
     </resultMap>
-    <select id="getAllUser" resultMap="role1">
+    <select id="getAllUser" parameterType="com.klxy.studraw_server.model.User" resultMap="role1">
         SELECT * FROM user
+        <where>
+            <if test="username != null">
+                <bind name="username" value="'%' + username + '%'" />
+                AND username like #{username}
+            </if>
+            <if test="roleid != null and roleid !=''">
+                AND roleid = #{roleid}
+            </if>
+        </where>
     </select>
 
     <!--动态更新  @Update("update user set username=#{username},password=#{password},status=#{status} where id=#{id}")-->
