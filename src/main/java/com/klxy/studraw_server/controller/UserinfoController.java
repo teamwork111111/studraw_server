@@ -48,7 +48,14 @@ public class UserinfoController {
      */
     @RequestMapping("/addUserinfo")
     public Integer addUserinfo(Userinfo userinfo){
-        return userinfoService.addUserinfo(userinfo);
+        int a = userinfoService.addUserinfo(userinfo);
+        if(a==1){
+            System.out.println("id为"+userinfo.getId());
+            return userinfo.getId();
+        }else {
+            return 0;
+        }
+//        return userinfoService.addUserinfo(userinfo);
     }
 
     /**

@@ -47,7 +47,7 @@ public class SummaryController {
 
     /**
      * 按id查询Summary
-     * http://localhost:8081/api/summary/getSummaryByid/1
+     * http://localhost:8081/api/summary/getSummaryByid?id=1
      * @param id
      * @return
      */
@@ -56,6 +56,16 @@ public class SummaryController {
         return summaryService.getSummaryByid(id);
     }
 
+    /**
+     * 按userid查询summary
+     * http://localhost:8081/api/summary/getSummaryByuserid?userid=1
+     * @param userid
+     * @return
+     */
+    @RequestMapping("/getSummaryByuserid")
+    public List<Summary> getSummaryByuserid(int userid) {
+        return summaryService.getSummaryByuserid(userid);
+    }
 
     /**
      * 新增summary

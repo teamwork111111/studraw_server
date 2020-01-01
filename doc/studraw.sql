@@ -141,7 +141,7 @@ CREATE TABLE `summary` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(11) auto_increment,
-  `username` varchar(255) DEFAULT NULL,
+  `username` varchar(255) NOT NULL unique,
   `password` varchar(255) DEFAULT NULL,
 	`userinfoid` int(11) DEFAULT NULL,
   `roleid` int(11) DEFAULT NULL,

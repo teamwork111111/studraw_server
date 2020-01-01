@@ -35,7 +35,8 @@ public interface UserinfoDao {
      * @param userinfo
      * @return
      */
-    @Insert("insert into userinfo values(default,#{name},#{sex},#{desc},#{image},#{qq},#{no},#{schid},#{majid},#{remark})")
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
+    @Insert("insert into userinfo(name,sex,userinfo.desc,image,qq,no,schid,majid,remark) values(#{name},#{sex},#{desc},#{image},#{qq},#{no},#{schid},#{majid},#{remark})")
     Integer addUserinfo(Userinfo userinfo);
 
     /**

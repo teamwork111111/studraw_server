@@ -35,17 +35,34 @@ public interface SummaryDao {
                                         @Param("createtime2") String createtime2 );*/
 
     /**
-     * 按id查询summary
+     * 按id查询summary，附带查询出评论
      * http://localhost:8081/api/summary/getSummaryByid?id=1
      * @param id
      * @return
      */
-    @Select("SELECT * FROM summary where id=#{0}")
+    @Select("SELECT * FROM summary where id=#{id}")
     @Results(value = {
             @Result(property = "userid",column = "userid"),
             @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid")),
+            @Result(id=true,property="id",column="id"),
+            @Result(property="feedback",column="id",many=@Many(select="com.klxy.studraw_server.dao.FeedbackDao.getFeedbackBysumid1"))
     })
     Summary getSummaryByid(int id);
+
+
+    /**
+     * 按userid查询summary，附带查询出评论
+     * @param userid
+     * @return
+     */
+    @Select("SELECT * FROM summary where userid=#{userid}")
+    @Results(value = {
+            @Result(property = "userid",column = "userid"),
+            @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid")),
+            @Result(id=true,property="id",column="id"),
+            @Result(property="feedback",column="id",many=@Many(select="com.klxy.studraw_server.dao.FeedbackDao.getFeedbackBysumid1"))
+    })
+    List<Summary> getSummaryByuserid(int userid);
 
     /**
      * 新增Summary

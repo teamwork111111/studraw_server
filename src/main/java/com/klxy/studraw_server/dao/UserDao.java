@@ -51,10 +51,19 @@ public interface UserDao {
     User login(String username, String password);
 
     /**
+     * 判断user是否存在（用userinfoid）
+     * @param username
+     * @return
+     */
+    @Select("select userinfoid from user where username = #{username}")
+    User selUserinfoidByusername(@Param("username") String username);
+
+    /**
      * 注册用户
      * @param user
      * @return
      */
+    @Options(useGeneratedKeys = true, keyProperty = "id", keyColumn = "id")
     @Insert("insert into user(username,password,roleid) values (#{username},#{password},#{roleid})")
     Integer insert(User user);
 
@@ -66,6 +75,15 @@ public interface UserDao {
      */
     @Update("update user set userinfoid=#{userinfoid} where id=#{id}")
     Integer adduserinfoid(@Param("id") int id, @Param("userinfoid") int userinfoid);
+
+    /**
+     * 根据username修改密码
+     * @param username
+     * @return
+     */
+    @Update("update user set password=#{password} where username=#{username}")
+    Integer uptPwdByusername(@Param("username") String username,@Param("password") String password);
+
 
     /**
      * 动态条件更新用户账号、密码、状态

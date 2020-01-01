@@ -16,6 +16,8 @@ public interface SummaryService {
 
     Summary getSummaryByid(int id);
 
+    List<Summary> getSummaryByuserid(int userid);
+
     Integer addSummary(Summary summary);
     Integer uptSummary(Summary summary);
     Integer delSummary(int id);

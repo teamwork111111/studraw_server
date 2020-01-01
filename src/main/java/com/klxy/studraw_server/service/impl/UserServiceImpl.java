@@ -40,6 +40,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User selUserinfoidByusername(String username){
+        return userDao.selUserinfoidByusername(username);
+    }
+
+    @Override
     public Integer insert(User user) {
         return userDao.insert(user);
     }
@@ -47,6 +52,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public Integer adduserinfoid(int id, int userinfoid) {
         return userDao.adduserinfoid(id, userinfoid);
+    }
+
+    @Override
+    public Integer uptPwdByusername(String username,String password) {
+        return userDao.uptPwdByusername(username,password);
     }
 
     @Override

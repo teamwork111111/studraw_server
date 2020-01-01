@@ -67,6 +67,16 @@ public class UserController {
     }
 
     /**
+     * 判断用户是否存在，如果存在就能获取到userinfoid
+     * @param username
+     * @return
+     */
+    @RequestMapping("/selUserinfoidByusername")
+    public User selUserinfoidByusername(String username){
+        return userService.selUserinfoidByusername(username);
+    }
+
+    /**
      * 注册用户方法
      * 浏览器测试：http://localhost:8081/api/user/adduser?username=13100001112&password=654321&roleid=1
      * 问题：userinfoid在用户注册的时候自动增长？然后取消userinfo主键id自动增长（实践证明表不能有2列自动增长列），然后用户填写userinfo基本信息时按userinfoid insert
@@ -78,7 +88,11 @@ public class UserController {
      */
     @RequestMapping("/adduser")
     public Integer addUser(User user) {
-        return userService.insert(user);
+        if(userService.insert(user)==1){
+            return user.getId();//更新成功，返回id
+        }else {
+            return 0;//表示更新失败
+        }
     }
 
     /**
@@ -92,6 +106,17 @@ public class UserController {
     @RequestMapping("/adduserinfoid")
     public Integer adduserinfoid(int id, int userinfoid) {
         return userService.adduserinfoid(id, userinfoid);
+    }
+
+    /**
+     * 更改密码
+     * @param username
+     * @param password
+     * @return
+     */
+    @RequestMapping("/uptPwdByusername")
+    public Integer uptPwdByusername(String username, String password) {
+        return userService.uptPwdByusername(username, password);
     }
 
     /**
