@@ -10,12 +10,20 @@ import java.util.List;
 
 public interface MajorDao {
     /**
-     * 按majid查询专业
+     * 按majid查询专业所有的信息
      * @param majid
      * @return
      */
     @Select("SELECT * FROM major where id = #{majid}")
     Major getMajorByMajid(int majid);
+
+    /**
+     * 按majid查询专业必要的信息
+     * @param majid
+     * @return
+     */
+    @Select("SELECT majname FROM major where id = #{majid}")
+    Major getSimpleMajorByMajid(int majid);
 
     /**
      * 查询所有major

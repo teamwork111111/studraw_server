@@ -10,12 +10,20 @@ import java.util.List;
 
 public interface SchoolDao {
     /**
-     * 按schid查询学校
+     * 按schid查询学校所有的信息
      * @param schid
      * @return
      */
     @Select("SELECT * FROM school where id = #{schid}")
     School getSchoolBySchid(int schid);
+
+    /**
+     * 按schid查询学校必要的信息
+     * @param schid
+     * @return
+     */
+    @Select("SELECT schoolname FROM school where id = #{schid}")
+    School getSimpleSchoolBySchid(int schid);
 
     /**
      * 查询所有school

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Summary {
     private int id;
-    private int userid;
+    private Integer userid;
     private Date createtime;
     private String content;
     private int hide;
@@ -29,11 +29,11 @@ public class Summary {
         this.id = id;
     }
 
-    public int getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Integer userid) {
         this.userid = userid;
     }
 

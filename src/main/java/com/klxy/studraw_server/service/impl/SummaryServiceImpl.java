@@ -1,5 +1,7 @@
 package com.klxy.studraw_server.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.klxy.studraw_server.dao.SummaryDao;
 import com.klxy.studraw_server.model.Summary;
 import com.klxy.studraw_server.service.SummaryService;
@@ -17,6 +19,14 @@ public class SummaryServiceImpl implements SummaryService {
     @Override
     public List<Summary> getAllSummary() {
         return summaryDao.getAllSummary();
+    }
+
+    @Override
+    public Object getAllSimpleSummary(Summary summary, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Summary> allSimpleSummary = summaryDao.getAllSimpleSummary(summary);
+        PageInfo<Summary> summaryPageInfo = new PageInfo<>(allSimpleSummary);
+        return summaryPageInfo;
     }
 
     @Override

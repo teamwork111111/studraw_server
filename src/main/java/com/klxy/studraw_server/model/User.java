@@ -4,8 +4,8 @@ public class User {
     private int id;
     private String username;
     private String password;
-    private int userinfoid;
-    private int roleid;
+    private Integer userinfoid;
+    private Integer roleid;
     private int status;
     private Userinfo userinfo;
     private Role role;
@@ -34,19 +34,20 @@ public class User {
         this.password = password;
     }
 
-    public int getUserinfoid() {
+
+    public Integer getUserinfoid() {
         return userinfoid;
     }
 
-    public void setUserinfoid(int userinfoid) {
+    public void setUserinfoid(Integer userinfoid) {
         this.userinfoid = userinfoid;
     }
 
-    public int getRoleid() {
+    public Integer getRoleid() {
         return roleid;
     }
 
-    public void setRoleid(int roleid) {
+    public void setRoleid(Integer roleid) {
         this.roleid = roleid;
     }
 

@@ -19,6 +19,11 @@ public interface UserinfoDao {
     })
     List<Userinfo> getAllUserinfo();
 
+    /**
+     * 按id查询所有的Userinfo信息
+     * @param userinfoid
+     * @return
+     */
     @Select("SELECT * FROM userinfo where id = #{userinfoid}")
     @Results(value = {
             @Result(property = "schid",column = "schid"),
@@ -27,6 +32,20 @@ public interface UserinfoDao {
             @Result(property="major",column="majid",one=@One(select="com.klxy.studraw_server.dao.MajorDao.getMajorByMajid"))
     })
     Userinfo getUserinfoByUserinfoid(int userinfoid);
+
+    /**
+     * 按id查询必要的Userinfo信息
+     * @param userinfoid
+     * @return
+     */
+    @Select("SELECT name,sex,image,schid,majid FROM userinfo where id = #{userinfoid}")
+    @Results(value = {
+            @Result(property = "schid",column = "schid"),
+            @Result(property = "majid",column = "majid"),
+            @Result(property="school",column="schid",one=@One(select="com.klxy.studraw_server.dao.SchoolDao.getSimpleSchoolBySchid")),
+            @Result(property="major",column="majid",one=@One(select="com.klxy.studraw_server.dao.MajorDao.getSimpleMajorByMajid"))
+    })
+    Userinfo getSimpleUserinfoByUserinfoid(int userinfoid);
 
 
 

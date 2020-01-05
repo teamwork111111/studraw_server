@@ -20,7 +20,11 @@ public interface SummaryDao {
     })
     List<Summary> getAllSummary();
 
-
+    /**
+     * 查询所有summary，只查询附带表的必要信息，带动态搜索查询(所以方法需要带上参数)。
+     * @return
+     */
+    List<Summary> getAllSimpleSummary(Summary summary);
 
     /**
      * 动态查询，实现按userid查询、按content内容模糊查询summary

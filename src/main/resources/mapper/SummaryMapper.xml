@@ -25,7 +25,20 @@
                 AND content like #{content}
             </if>
         </where>
-        <!--<where>
+    </select>
+
+    <resultMap id="ss1" type="com.klxy.studraw_server.model.Summary">
+        <id column="id" property="id"/>
+        <result column="userid" property="userid" />
+        <result column="createtime" property="createtime" />
+        <result column="content" property="content" />
+        <result column="hide" property="hide" />
+        <association property="user" select="com.klxy.studraw_server.dao.UserDao.getSimpleUserByid" column="userid"></association>
+        <collection property="feedback" select="com.klxy.studraw_server.dao.FeedbackDao.getSimpleFeedbackBysumid1" column="id"></collection>
+    </resultMap>
+    <select id="getAllSimpleSummary" resultMap="ss1" parameterType="com.klxy.studraw_server.model.Summary">
+        SELECT * FROM summary
+        <where>
             <if test="userid != null and userid !=''">
                 AND userid = #{userid}
             </if>
@@ -33,10 +46,8 @@
                 <bind name="content" value="'%'+content+'%'"/>
                 AND content like #{content}
             </if>
-            <if test="createtime1 !=null and createtime1 !='' and createtime2 !=null and createtime2 !=''" >
-                AND summary.createtime BETWEEN #{createtime1} and #{createtime2}
-            </if>
-        </where>-->
+        </where>
+        ORDER BY createtime DESC
     </select>
 
 

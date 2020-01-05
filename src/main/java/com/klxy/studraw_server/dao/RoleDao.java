@@ -19,6 +19,14 @@ public interface RoleDao {
     Role getRoleByRoleid(int roleid);
 
     /**
+     * 按roleid查询必要的role信息
+     * @param roleid
+     * @return
+     */
+    @Select("SELECT rolename FROM role where id = #{roleid}")
+    Role getSimpleRoleByRoleid(int roleid);
+
+    /**
      * 查询所有role
      * @return
      */

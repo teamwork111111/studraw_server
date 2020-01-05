@@ -5,6 +5,7 @@ import com.klxy.studraw_server.model.Summary;
 import com.klxy.studraw_server.service.SummaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -23,6 +24,21 @@ public class SummaryController {
     @RequestMapping("/getAllSummary")
     public List<Summary> getAllSummary(){
         return summaryService.getAllSummary();
+    }
+
+    /**
+     *  查询所有summary，附带查询必要的信息
+     *  浏览器测试：http://localhost:8081/api/summary/getAllSimpleSummary
+     * @param summary
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
+    @RequestMapping("/getAllSimpleSummary")
+    public Object getAllSimpleSummary(Summary summary,
+                                      @RequestParam(value = "pageNum", defaultValue = "1")  int pageNum,
+                                      @RequestParam(value = "pageSize", defaultValue = "10") int pageSize){
+        return summaryService.getAllSimpleSummary(summary,pageNum,pageSize);
     }
 
     /**

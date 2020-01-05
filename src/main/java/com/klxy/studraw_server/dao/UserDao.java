@@ -28,7 +28,7 @@ public interface UserDao {
     List<User> getAllUser1();
 
     /**
-     * 安装id查询用户
+     * 安装id查询用户所有信息
      * @param id
      * @return
      */
@@ -40,6 +40,20 @@ public interface UserDao {
             @Result(property="role",column="roleid",one=@One(select="com.klxy.studraw_server.dao.RoleDao.getRoleByRoleid"))
     })
     User getUserByid(int id);
+
+    /**
+     * 按id查询简单版的user，只查询必要信息
+     * @param id
+     * @return
+     */
+    @Select("select username,userinfoid,roleid from user where id = #{id}")
+    @Results(value = {
+            @Result(property = "userinfoid",column = "userinfoid"),
+            @Result(property = "roleid",column = "roleid"),
+            @Result(property="userinfo",column="userinfoid",one=@One(select="com.klxy.studraw_server.dao.UserinfoDao.getUserinfoByUserinfoid")),
+            @Result(property="role",column="roleid",one=@One(select="com.klxy.studraw_server.dao.RoleDao.getSimpleRoleByRoleid"))
+    })
+    User getSimpleUserByid(int id);
 
     /**
      * 用户登录方法
