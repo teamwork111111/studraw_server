@@ -10,7 +10,7 @@ public interface SummaryDao {
      * 查询所有感想/总结, 附带查询出发表summary用户及每条summary的评论
      * @return
      */
-    @Select("SELECT * FROM summary")
+    @Select("SELECT * FROM summary order by createtime desc")
     @Results(value = {
             @Result(property = "userid",column = "userid"),
             @Result(property="user",column="userid",one=@One(select="com.klxy.studraw_server.dao.UserDao.getUserByid")),
